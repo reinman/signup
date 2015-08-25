@@ -91,9 +91,14 @@ $(document).ready(function () {
     } else {
       $('#hero-error-notification').removeClass('show-up');
     }
+    
 
-    $('#hero-success-notification').addClass('show-up');
-    $('#hero-submit').addClass('disabled');
+    // TODO: Make sure this only works if the form submits successfully
+    if (error == false) {
+      $('#hero-success-notification').addClass('show-up');
+      $('#hero-submit').addClass('disabled');
+    }
+
 
     if (error == false) {
       $.post("hero-form.php", $("#register-form").serialize(), function (result) {
